@@ -1,0 +1,52 @@
+<nz-input-group
+  [nzSuffix]="suffixIconSearch"
+  nz-popover
+  nzTrigger="click"
+  nzTitle="选择地区"
+  nzPlacement="bottomLeft"
+  [style.width]="width"
+  [nzContent]="contentTemplate"
+  (nzVisibleChange)="popoverVisiableChange($event)"
+>
+  <input nz-input [placeholder]="placeHolder" [(ngModel)]="names" nz-tooltip [nzTitle]="names" readonly/>
+</nz-input-group>
+
+<ng-template #suffixIconSearch>
+  <i nz-icon [nzType]="popoverVisiable ? 'up' : 'down'" nzTheme="outline" class="color-grey"></i>
+</ng-template>
+
+<ng-template #contentTemplate>
+  <div class="wrapper">
+    <div class="content">
+      <div *ngFor="let area of areas">
+        <span class="margin-right-20">{{area?.name}}</span>
+        <span
+          class="margin-right-10"
+          nz-checkbox
+          *ngFor="let pro of area.children"
+          [(ngModel)]="pro.selected"
+          (ngModelChange)="onProSelect($event, pro)"
+          [nzIndeterminate]="pro.partSelected"
+          nz-popover
+          [nzContent]="pro?.isLeaf ? null : proTemplate"
+          nzPlacement="bottomLeft"
+        >
+          {{pro?.name}}
+          <ng-template #proTemplate>
+            <div class="city-width">
+              <span
+                nz-checkbox
+                [(ngModel)]="city.selected"
+                (ngModelChange)="onCitySelect($event, city, pro)"
+                *ngFor="let city of pro.children"
+                class="margin-right-10"
+              >
+                {{city?.name}}
+              </span>
+            </div>
+          </ng-template>
+        </span>
+      </div>
+    </div>
+  </div>
+</ng-template>

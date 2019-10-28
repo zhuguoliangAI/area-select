@@ -1,0 +1,22 @@
+{
+  "name": "multiple-area-select",
+  "version": "0.0.3",
+  "author": {
+    "email": "949017874@qq.com",
+    "name": "zgl",
+    "github": "github.com/zhuguoliangAI"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhuguoliangAI/area-select.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhuguoliangAI/area-select/issues"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.2.11",
+    "@angular/core": "^8.2.11",
+    "ng-zorro-antd": "^8.4.1"
+  }
+}
