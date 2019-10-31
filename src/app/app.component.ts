@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'area-select';
+  ctrl = new FormControl();
+  number = 20;
+  constructor() {
+    this.ctrl.setValue(11, {
+      onlySelf: true,
+      emitEvent: true,
+      emitModelToViewChange: true,
+      emitViewToModelChange: true
+    });
+  }
+
+  updateSlider($event) {
+    this.ctrl.setValue($event.currentTarget.value, {emitModelToViewChange: true});
+  }
 }

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -15,6 +15,7 @@ import { counterReducer } from './store/counter.reducer';
 import { MyCounterComponent } from './my-counter/my-counter.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { NgxJquerySliderComponent } from './ngx-jquery-slider/ngx-jquery-slider.component';
 // import {MultipleAreaSelectModule} from '../../projects/multiple-area-select/src/lib/multiple-area-select.module';
 // import {MultipleAreaSelectModule} from '../../projects/multiple-area-select/src/lib/multiple-area-select.module';
 
@@ -24,12 +25,14 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     MyCounterComponent,
+    NgxJquerySliderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgZorroAntdModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({ counter: counterReducer }),

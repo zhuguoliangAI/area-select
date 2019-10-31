@@ -3,4 +3,9 @@
 <!--</div>-->
 
 
-<app-my-counter></app-my-counter>
+<!--<app-my-counter></app-my-counter>-->
+
+<h1>Hello {{number}}</h1>
+<!--<span>Current slider value: {{ctrl.value}}</span>-->
+<app-ngx-jquery-slider [(ngModel)]="number"></app-ngx-jquery-slider>
+<!--<input [value]="ctrl.value" (change)="updateSlider($event)">-->
